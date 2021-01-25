@@ -14,13 +14,12 @@ appRouter.get('/', (req, res) => {
 });
 // "/api" Route  that returns a JSON object
 appRouter.get('/json', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.write(
-    JSON.stringify({
-      message: 'Hello World',
-      email: 'someemail@address.com',
-      data: 'some more json data',
-    })
-  );
+  res.json({
+    message: 'Hello World',
+    email: 'someemail@address.com',
+    data: 'some more json data',
+    source: 'hello from the /json route'
+  });
+
   res.end();
 });
