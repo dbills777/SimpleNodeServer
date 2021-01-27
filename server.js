@@ -1,6 +1,6 @@
 //imports
 import express from 'express';
-import { appRouter } from './routes/route.app.js';
+import { appRouter } from './routes/api.route.js';
 
 // app & port
 const app = express();

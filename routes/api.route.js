@@ -13,12 +13,13 @@ appRouter.get('/', (req, res) => {
   res.sendFile('./index.html');
 });
 // "/api" Route  that returns a JSON object
-appRouter.get('/json', (req, res) => {
+appRouter.get('/api', (req, res) => {
   res.json({
     message: 'Hello World',
-    email: 'someemail@address.com',
+    email: 'YourEmail@SomeAddress.com',
     data: 'some more json data',
-    source: 'hello from the /json route'
+    source: { one: 'one', two: 'two' },
+    members: ["Wanda", "Vision", "Mephisto"]
   });
 
   res.end();
