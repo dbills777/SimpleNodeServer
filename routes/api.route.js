@@ -17,9 +17,9 @@ appRouter.get('/api', (req, res) => {
   res.json({
     message: 'Hello World',
     email: 'YourEmail@SomeAddress.com',
-    data: 'some more json data',
+    data: 'Returning some JSON data',
     source: { one: 'one', two: 'two' },
-    members: ["Wanda", "Vision", "Mephisto"]
+    members: ['Wanda', 'Vision', 'Mephisto'],
   });
 
   res.end();
