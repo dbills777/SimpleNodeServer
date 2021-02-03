@@ -1,8 +1,10 @@
 //imports
 import express from 'express';
+import bodyparser from 'body-parser'
 import { apiRouter } from './routes/api.route.js';
 import {productRouter} from './routes/product.route.js'
 import path from 'path';
+
 
 // path imports and constants for serving public files
 import { fileURLToPath } from 'url';
@@ -10,8 +12,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // app & port
-const app = express();
 const port = process.env.PORT || 5000;
+const app = express();
+app.use(bodyparser.urlencoded({extended: false}))
 
 //tell apiRouter to serve public folder
 app.use(express.static('public'));
