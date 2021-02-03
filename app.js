@@ -2,6 +2,10 @@
 import express from 'express';
 import { apiRouter } from './routes/api.route.js';
 import {productRouter} from './routes/product.route.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // app & port
 const app = express();
@@ -16,7 +20,7 @@ app.use('/product', productRouter);
 
 // 404 page error
 app.use((req, res, next) => {
-  res.status(404).send('<h1>Page not found</h1>');
+  res.sendFile('./public/404.html', { root: __dirname });
 });
 
 //listen on assigned env port or default port
