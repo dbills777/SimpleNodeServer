@@ -5,4 +5,6 @@ GET http://localhost:5000/api555
 
 ###
 POST http://localhost:5000/product HTTP/1.1
+###
+GET http://localhost:5000/product HTTP/1.1
 
