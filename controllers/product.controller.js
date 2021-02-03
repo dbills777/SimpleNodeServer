@@ -1,7 +1,8 @@
-export const product = (req, res) => {
-  res.json({
-    name: 'Some Cool Item',
-    price: 30.99,
-    description: 'Some description goes here',
-  });
+import  {Product}  from '../models/local_product.js';
+
+export const postAddProduct = (req, res) => {
+  const product = new Product('Yoda', '$49.99')
+  console.log(product)
+  product.save()
+  res.redirect('/')
 };

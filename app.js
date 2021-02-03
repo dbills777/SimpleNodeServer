@@ -3,6 +3,8 @@ import express from 'express';
 import { apiRouter } from './routes/api.route.js';
 import {productRouter} from './routes/product.route.js'
 import path from 'path';
+
+// path imports and constants for serving public files
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
