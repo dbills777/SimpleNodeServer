@@ -4,7 +4,7 @@ import { Router } from 'express';
 // use product.conroller for exporting functions
 import { postAddProduct, getAllProducts } from '../controllers/product.controller.js';
 
-//export appRouter instance
+//export appRouter instances
 export const productRouter = Router();
 
 //TODO  could add more paths for /api route here
