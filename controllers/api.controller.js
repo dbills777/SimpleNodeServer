@@ -5,11 +5,11 @@ export const api = (req, res) => {
     data: 'Returning some JSON data',
     source: { one: 'one', two: 'two' },
     members: ['Wanda', 'Vision', 'Mephisto'],
-  })
-}
-export const status = ((req, res)=>{
-    res.json({
-        status: "Great",
-        info: "Status export from api.controller"
-    })
-})
+  });
+};
+export const status = (req, res) => {
+  res.json({
+    status: 'Great',
+    info: 'Status export from api.controller',
+  });
+};

@@ -1,10 +1,9 @@
 //imports
 import express from 'express';
-import bodyparser from 'body-parser'
+import bodyparser from 'body-parser';
 import { apiRouter } from './routes/api.route.js';
-import {productRouter} from './routes/product.route.js'
+import { productRouter } from './routes/product.route.js';
 import path from 'path';
-
 
 // path imports and constants for serving public files
 import { fileURLToPath } from 'url';
@@ -14,7 +13,7 @@ const __dirname = path.dirname(__filename);
 // app & port
 const port = process.env.PORT || 5000;
 const app = express();
-app.use(bodyparser.urlencoded({extended: false}))
+app.use(bodyparser.urlencoded({ extended: false }));
 
 //tell apiRouter to serve public folder
 app.use(express.static('public'));
@@ -29,6 +28,4 @@ app.use((req, res, next) => {
 });
 
 //listen on assigned env port or default port
-app.listen(process.env.PORT || port, () =>
-  console.log(` App LIstening at http://localhost:${port}`)
-);
+app.listen(process.env.PORT || port, () => console.log(` App LIstening at http://localhost:${port}`));
