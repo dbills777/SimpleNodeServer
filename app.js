@@ -1,9 +1,13 @@
 //imports
-import express from 'express';
-import bodyparser from 'body-parser';
 import { apiRouter } from './routes/api.route.js';
-import { productRouter } from './routes/product.route.js';
+import bodyparser from 'body-parser';
+import * as dotenv from 'dotenv';
+import express from 'express';
 import path from 'path';
+import { productRouter } from './routes/product.route.js';
+import mongoose from 'mongoose';
+
+dotenv.config();
 
 // path imports and constants for serving public files
 import { fileURLToPath } from 'url';
@@ -28,4 +32,12 @@ app.use((req, res, next) => {
 });
 
 //listen on assigned env port or default port
-app.listen(process.env.PORT || port, () => console.log(` App LIstening at http://localhost:${port}`));
+
+const main = async () => {
+  await mongoose.connect(`${process.env.DGM4790_CONNECTION_STRING}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  app.listen(process.env.PORT || port, () => console.log(` App LIstening at http://localhost:${port}`));
+};
+main();
