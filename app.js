@@ -24,12 +24,16 @@ app.use(express.static('public'));
 
 //tell app to use routes
 app.use('/api', apiRouter);
+// app.use('/form', apiRouter);
 app.use('/api', (req, res, next) => {
   console.log(`just hit custom middleware for Api route: ${new Date().toLocaleDateString()} next()`);
 });
 app.use('/product', productRouter);
 
-// 404 page error
+// Form
+app.get( '/form', ( req, res) => {
+  res.sendFile('./public/productForm.html', { root: __dirname });
+});
 app.use((req, res, next) => {
   res.sendFile('./public/404.html', { root: __dirname });
 });
