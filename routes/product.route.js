@@ -13,13 +13,14 @@ import {
 
 //export appRouter instances
 export const productRouter = Router();
-
-//TODO  could add more paths for /api route here
-// "/" Route  that returns a JSON object
+// Post Product
 productRouter.post('/', postAddProduct);
+// Get products single and all
 // extra example of other method of getting products.
 productRouter.get('/then', getProductsThen);
 productRouter.get('/', getAllProducts);
 productRouter.get('/getone', getProductByID);
+// Update Products
 productRouter.put('/updateone', updateOneProduct);
+// Delete one product
 productRouter.delete('/', deleteProductByID);
