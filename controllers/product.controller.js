@@ -27,11 +27,30 @@ export const getProductByID = async (req, res) => {
   const productID = req.body.productID;
   try {
     const product = await Product.findById(productID);
-    if (!product) return res.status(400)({ Message: 'Item with that productID is not found' });
-    console.log(`Product id: ${productID}`);
-    res.json(product)
+    if (!product) return res.status(400).json({ Message: 'Item with that productID is not found' });
+    // console.log(`Product id: ${productID}`);
+    res.json(product);
   } catch (error) {
     res.status(400).json({ Message: `Can't find Product ${err}` });
+  }
+};
+export const updateOneProduct = async (req, res) => {
+  const productID = req.body.productID;
+  const newItemInfo = {
+    title: req.body.title,
+    price: req.body.price,
+    description: req.body.description,
+    imgURL: req.body.imgURL,
+  };
+  try {
+    try {
+      const product = await Product.findByIdAndUpdate(productID, newItemInfo, { new: true });
+      res.json(product);
+    } catch (err) {
+      res.status(400).json({ Message: `Could not update: ${err}` });
+    }
+  } catch (error) {
+    res.status(400).json({ Message: `Invalid Product ${err}` });
   }
 };
 
