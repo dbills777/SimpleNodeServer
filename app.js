@@ -23,11 +23,11 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 //tell app to use routes
-app.use('/api', apiRouter);
-// app.use('/form', apiRouter);
 app.use('/api', (req, res, next) => {
-  console.log(`just hit custom middleware for Api route: ${new Date().toLocaleDateString()} next()`);
+  console.log(`just hit custom middleware for Api route Can Hit an api or do other things here!: ${new Date().toLocaleDateString()}`)
+  next();
 });
+app.use('/api', apiRouter);
 app.use('/product', productRouter);
 
 // Form

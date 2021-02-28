@@ -2,7 +2,7 @@
 import { Router } from 'express';
 
 // use product.conroller for exporting functions
-import { postAddProduct, getAllProducts } from '../controllers/product.controller.js';
+import { postAddProduct, getAllProducts, deleteProductByID } from '../controllers/product.controller.js';
 
 //export appRouter instances
 export const productRouter = Router();
@@ -11,3 +11,4 @@ export const productRouter = Router();
 // "/" Route  that returns a JSON object
 productRouter.post('/', postAddProduct);
 productRouter.get('/', getAllProducts);
+productRouter.delete('/', deleteProductByID);
