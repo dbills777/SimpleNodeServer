@@ -11,18 +11,36 @@ export const postAddProduct = (req, res) => {
   product.save();
   res.json(product);
 };
-
+// Example of other method for making requests
+export const getProductsThen = (req, res) => {
+  Product.find()
+    .then((products) => {
+      res.json(products);
+    })
+    .catch((err) => log(err));
+};
 export const getAllProducts = async (req, res) => {
   const products = await Product.find();
   res.json(products);
+};
+export const getProductByID = async (req, res) => {
+  const productID = req.body.productID;
+  try {
+    const product = await Product.findById(productID);
+    if (!product) return res.status(400)({ Message: 'Item with that productID is not found' });
+    console.log(`Product id: ${productID}`);
+    res.json(product)
+  } catch (error) {
+    res.status(400).json({ Message: `Can't find Product ${err}` });
+  }
 };
 
 export const deleteProductByID = async (req, res) => {
   const productID = req.body.productID;
   try {
-    const deletProduct = await Product.findByIdAndRemove(productID);
-    if (!deletProduct) return res.status(400)({ Message: 'Item with that productID is not found' });
-    console.log('Deleted: ${productID}');
+    const deleteProduct = await Product.findByIdAndRemove(productID);
+    if (!deleteProduct) return res.status(400)({ Message: 'Item with that productID is not found' });
+    console.log('Deleted: ${deleteProduct}');
     res.sendStatus(200);
   } catch (error) {
     res.status(400).json({ Message: `Invalid Product ${err}` });
