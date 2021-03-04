@@ -8,7 +8,7 @@ import {
   deleteProductByID,
   getProductsThen,
   getProductByID,
-  updateOneProduct,
+  putUpdateOneProduct,
 } from '../controllers/product.controller.js';
 
 //export appRouter instances
@@ -21,6 +21,6 @@ productRouter.get('/then', getProductsThen);
 productRouter.get('/', getAllProducts);
 productRouter.get('/getone', getProductByID);
 // Update Products
-productRouter.put('/updateone', updateOneProduct);
+productRouter.put('/updateone', putUpdateOneProduct);
 // Delete one product
 productRouter.delete('/', deleteProductByID);

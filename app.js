@@ -6,7 +6,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
 import { productRouter } from './routes/product.route.js';
-
+mongoose.set('useFindAndModify', false);
 dotenv.config();
 
 // path imports and constants for serving public files
@@ -24,14 +24,16 @@ app.use(express.static('public'));
 
 //tell app to use routes
 app.use('/api', (req, res, next) => {
-  console.log(`just hit custom middleware for Api route Can Hit an api or do other things here!: ${new Date().toLocaleDateString()}`)
+  console.log(
+    `just hit custom middleware for Api route Can Hit an api or do other things here!: ${new Date().toLocaleDateString()}`
+  );
   next();
 });
 app.use('/api', apiRouter);
 app.use('/product', productRouter);
 
 // Form
-app.get( '/form', ( req, res) => {
+app.get('/form', (req, res) => {
   res.sendFile('./public/productForm.html', { root: __dirname });
 });
 app.use((req, res, next) => {
