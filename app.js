@@ -1,11 +1,12 @@
 //imports
 import { apiRouter } from './routes/api.route.js';
+import { productRouter } from './routes/product.route.js';
+import { characterRouter } from './routes/character.route.js';
 import bodyparser from 'body-parser';
 import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
-import { productRouter } from './routes/product.route.js';
 mongoose.set('useFindAndModify', false);
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use('/api', (req, res, next) => {
 });
 app.use('/api', apiRouter);
 app.use('/product', productRouter);
+app.use('/character', characterRouter);
 
 // Form
 app.get('/form', (req, res) => {
