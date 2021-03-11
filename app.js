@@ -1,7 +1,7 @@
 //imports
 import { apiRouter } from './routes/api.route.js';
 import { productRouter } from './routes/product.route.js';
-import { characterRouter } from './routes/character.route.js';
+import { storeRouter } from './routes/store.route.js';
 import bodyparser from 'body-parser';
 import * as dotenv from 'dotenv';
 import express from 'express';
@@ -32,7 +32,8 @@ app.use('/api', (req, res, next) => {
 });
 app.use('/api', apiRouter);
 app.use('/product', productRouter);
-app.use('/character', characterRouter);
+// app.use('/character', characterRouter);
+app.use('/store', storeRouter);
 
 // Form
 app.get('/form', (req, res) => {

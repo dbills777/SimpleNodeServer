@@ -1,4 +1,4 @@
-import { Character } from '../models/characters.js';
+import { Test } from '../models/characters.js';
 import axios from 'axios';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -26,18 +26,18 @@ const seedMongo = async () => {
   }
 };
 
-const postAddCharacter = async (req, res) => {
-  console.log('This is the request', req);
-  const character = new Character({
-    char_id: req.char_id,
-    name: req.name,
-    birhtday: req.birhtday,
-    occupation: req.occupation,
-    imgURL: req.img,
-    status: req.status,
-    nickname: req.nickname,
-    portrayed: req.portrayed,
-    category: req.category,
+const postAddCharacter = async (oneChar) => {
+  console.log('This is the request', oneChar);
+  const character = new Test({
+    char_id: oneChar.char_id,
+    name: oneChar.name,
+    birhtday: oneChar.birhtday,
+    occupation: oneChar.occupation,
+    image: oneChar.img,
+    status: oneChar.status,
+    nickname: oneChar.nickname,
+    portrayed: oneChar.portrayed,
+    category: oneChar.category,
   });
   console.log('line 34console.', character);
   await character.save();
