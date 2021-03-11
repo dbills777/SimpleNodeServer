@@ -1,12 +1,13 @@
 import { Character } from '../models/characters.js';
 
 export const postAddCharacter = (req, res) => {
+  console.log("***************************", req);
   const character = new Character({
     char_id: req.body.char_id,
     name: req.body.name,
     birhtday: req.body.birhtday,
     occupation: req.body.occupation,
-    imgURL: req.body.img,
+    img: req.body.img,
     status: req.body.status,
     nickname: req.body.nickname,
     appearance: req.body.appearance,
@@ -15,13 +16,13 @@ export const postAddCharacter = (req, res) => {
   });
   console.log(character);
   character.save();
-  //   res.json(character);
+    res.json(character);
 };
 // Example of other method for making requests
 
 export const getAllCharcters = async (req, res) => {
   const products = await Character.find();
-  res.json(products);
+  res.send(products);
 };
 
 export const getCharactersByID = async (req, res) => {

@@ -17,9 +17,9 @@ const seedMongo = async () => {
 
   try {
     const response = await axios.request(options);
-    console.log("line 20 response log", response.data[0]);
+    console.log('line 20 response log', response.data[0]);
     // await postAddCharacter(response.data[0]);
-    await addAllCharacters(response.data)
+    await addAllCharacters(response.data);
     await mongoose.connection.close();
   } catch (error) {
     console.error(error);
@@ -43,10 +43,10 @@ const postAddCharacter = async (req, res) => {
   await character.save();
 };
 
-const addAllCharacters = async(characterList) =>{
-    for(let character of characterList){
-        // console.log(character)
-        await postAddCharacter(character)
-    }
-}
+const addAllCharacters = async (characterList) => {
+  for (let character of characterList) {
+    // console.log(character)
+    await postAddCharacter(character);
+  }
+};
 seedMongo();

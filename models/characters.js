@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const characterSchema = new Schema({
   char_id: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {
@@ -15,14 +15,22 @@ const characterSchema = new Schema({
     type: String,
     required: false,
   },
+  appearance: {
+    type: Array,
+    required: false,
+  },
+  better_call_saul_appearance: {
+    type: Array,
+    required: false,
+  },
   occupation: {
     type: Array,
     required: false,
   },
-  imgURL: {
-    type: String,
-    required: false,
+  any: {
+    type: {img: String},
   },
+
   status: {
     type: String,
     required: false,
@@ -31,7 +39,7 @@ const characterSchema = new Schema({
     type: String,
     required: false,
   },
-  
+
   portrayed: {
     type: String,
     required: false,
