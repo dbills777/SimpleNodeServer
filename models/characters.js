@@ -28,7 +28,7 @@ const characterSchema = new Schema({
     required: false,
   },
   any: {
-    type: {img: String},
+    type: { img: String },
   },
 
   status: {
@@ -49,4 +49,4 @@ const characterSchema = new Schema({
     required: false,
   },
 });
-export const Character = mongoose.model('Character', characterSchema);
+export const Character = mongoose.model('Item', characterSchema);
