@@ -1,4 +1,4 @@
-import { Test } from '../models/characters.js';
+import { Character } from '../models/characters.js';
 import axios from 'axios';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -28,7 +28,7 @@ const seedMongo = async () => {
 
 const postAddCharacter = async (oneChar) => {
   console.log('This is the request', oneChar);
-  const character = new Test({
+  const character = new Character({
     char_id: oneChar.char_id,
     name: oneChar.name,
     birhtday: oneChar.birhtday,

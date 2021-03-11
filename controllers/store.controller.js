@@ -15,14 +15,14 @@ export const postAddProduct = (req, res) => {
 };
 // Example of other method for making requests
 export const getProductsThen = (req, res) => {
-  Product.find()
+  Store.find()
     .then((products) => {
       res.json(products);
     })
     .catch((err) => log(err));
 };
 export const getAllProducts = async (req, res) => {
-  const products = await Product.find();
+  const products = await Store.find();
   res.json(products);
 };
 
